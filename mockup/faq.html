@@ -219,10 +219,23 @@
       flex-shrink: 0;
     }
     .faq-answer {
-      padding: 0 24px 20px;
+      padding: 0 24px 0;
       font-size: 15px;
       color: #555;
       line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+      padding: 0 24px 20px;
+    }
+    .faq-question svg {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-question svg {
+      transform: rotate(180deg);
     }
     .faq-answer a {
       color: var(--hunter-green);
@@ -701,6 +714,20 @@
     </div>
   </footer>
 
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      var wasOpen = item.classList.contains('open');
+      // Close all items in the same section
+      item.closest('.faq-section').querySelectorAll('.faq-item.open').forEach(function(el) {
+        el.classList.remove('open');
+      });
+      // Toggle the clicked item
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </body>
 </html>
