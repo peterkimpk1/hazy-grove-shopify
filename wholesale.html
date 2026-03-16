@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wholesale — Hazy Grove Farms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #4a4a4a;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============ DESIGN TOKENS ============ */
+    :root {
+      --charcoal: #4a4a4a;
+      --hunter-green: #32473a;
+      --hemp-paper: #dfcea5;
+      --white: #ffffff;
+      --light-bg: #f9f6f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============ NAVIGATION ============ */
+    .nav {
+      background: #4a4a4a;
+      padding: 16px 0;
+      position: relative;
+      z-index: 100;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      height: 56px;
+      width: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #e0e0e0;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--hemp-paper); }
+    .nav-links a.active { color: var(--hemp-paper); }
+    .nav-cart {
+      position: relative;
+      color: #e0e0e0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-cart:hover { color: var(--hemp-paper); }
+    .nav-cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--hunter-green);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #e0e0e0;
+    }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--hunter-green);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #3d5a49;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(50,71,58,0.3);
+    }
+
+    /* ============ WHOLESALE HERO ============ */
+    .wholesale-hero {
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('images/farm/about-field.jpg') center/cover no-repeat;
+    }
+    .wholesale-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(50, 71, 58, 0.6) 0%,
+        rgba(50, 71, 58, 0.75) 100%
+      );
+    }
+    .wholesale-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 60px 24px;
+    }
+    .wholesale-hero h1 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .wholesale-hero p {
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 400;
+    }
+
+    /* ============ WHY PARTNER ============ */
+    .why-partner {
+      padding: 80px 0;
+      background: var(--light-bg);
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-heading h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 8px;
+    }
+    .section-heading p {
+      font-size: 17px;
+      color: #777;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .value-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .value-card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .value-card-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--hunter-green);
+    }
+    .value-card h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .value-card p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ============ WHOLESALE FORM SECTION ============ */
+    .wholesale-form-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .wholesale-form-section .container {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ============ FORM STYLES ============ */
+    .wholesale-form h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 8px;
+    }
+    .wholesale-form > p {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 32px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      background: var(--white);
+      border: 1.5px solid #ddd;
+      border-radius: 6px;
+      padding: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--charcoal);
+      transition: border-color 0.2s;
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--hunter-green);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .form-textarea.tall {
+      min-height: 140px;
+    }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--hunter-green);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .form-submit:hover {
+      background: #3d5a49;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(50,71,58,0.3);
+    }
+
+    /* ============ WHOLESALE SIDEBAR ============ */
+    .wholesale-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar-card {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .sidebar-card h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 20px;
+    }
+    .sidebar-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .sidebar-step:last-child {
+      margin-bottom: 0;
+    }
+    .sidebar-step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--hunter-green);
+      color: var(--white);
+      font-family: 'Amatic SC', cursive;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sidebar-step p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+      padding-top: 6px;
+    }
+
+    .sidebar-card.questions p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .sidebar-card.questions a {
+      color: var(--hunter-green);
+      font-weight: 600;
+    }
+
+    /* Trust badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 8px;
+    }
+    .trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+    .trust-badge-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-badge-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--hunter-green);
+    }
+    .trust-badge span {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      background: #4a4a4a;
+      color: #ccc;
+      padding: 60px 0 24px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-self: start;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-brand-logo img {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #aaa;
+    }
+    .footer h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--hemp-paper);
+      margin-bottom: 16px;
+    }
+    .footer ul {
+      list-style: none;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul a {
+      color: #aaa;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer ul a:hover { color: var(--hemp-paper); }
+    .footer-contact p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+    .footer-bottom {
+      border-top: 1px solid #5a5a5a;
+      padding-top: 20px;
+    }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .footer-copyright {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+
+      .wholesale-hero { min-height: 300px; }
+      .wholesale-hero h1 { font-size: 48px; }
+
+      .values-grid { grid-template-columns: 1fr; }
+
+      .wholesale-form-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .wholesale-hero h1 { font-size: 40px; }
+      .section-heading h2 { font-size: 36px; }
+      .trust-badges { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-nav.png" alt="Hazy Grove Farms">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="wholesale.html" class="active">Wholesale</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li>
+          <a href="#" class="nav-cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <span class="nav-cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <button class="nav-mobile-toggle" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== WHOLESALE HERO ==================== -->
+  <section class="wholesale-hero">
+    <div class="wholesale-hero-content">
+      <h1>Wholesale Partnerships</h1>
+      <p>Bring Hazy Grove Farms to your retail shelves</p>
+    </div>
+  </section>
+
+  <!-- ==================== WHY PARTNER ==================== -->
+  <section class="why-partner">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Why Partner With Us</h2>
+        <p>What makes Hazy Grove Farms different</p>
+      </div>
+      <div class="values-grid">
+        <!-- Farm Direct -->
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>Brand Direct</h3>
+          <p>Order direct from the brand. No distributors, no markups. You get quality products at the best margin, shipped straight from China Grove, NC.</p>
+        </div>
+        <!-- Trusted Brand -->
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Trusted Brand</h3>
+          <p>Third-party tested, fully compliant, with a brand story your customers trust. Every batch comes with COAs and transparent labeling.</p>
+        </div>
+        <!-- Flexible Terms -->
+        <div class="value-card">
+          <div class="value-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3>Flexible Terms</h3>
+          <p>Custom order sizes, competitive margins, and dedicated support. We work with shops of all sizes — from single-location boutiques to multi-store chains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHOLESALE INQUIRY FORM ==================== -->
+  <section class="wholesale-form-section">
+    <div class="container">
+
+      <!-- Form -->
+      <div class="wholesale-form">
+        <h2>Wholesale Inquiry</h2>
+        <p>Fill out the form below and Bobby will follow up personally.</p>
+        <form>
+          <div class="form-group">
+            <label class="form-label" for="business-name">Business Name</label>
+            <input type="text" id="business-name" class="form-input" placeholder="Your business name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Contact Name</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="Your full name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="ws-email">Email</label>
+              <input type="email" id="ws-email" class="form-input" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ws-phone">Phone</label>
+              <input type="tel" id="ws-phone" class="form-input" placeholder="(555) 123-4567">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="business-type">Business Type</label>
+            <select id="business-type" class="form-select">
+              <option value="" disabled selected>Select your business type</option>
+              <option>Retail Store</option>
+              <option>Smoke Shop</option>
+              <option>Wellness Boutique</option>
+              <option>Dispensary</option>
+              <option>Online Retailer</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ws-state">State</label>
+            <select id="ws-state" class="form-select">
+              <option value="" disabled selected>Select your state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+              <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+              <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+              <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+              <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+              <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+              <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+              <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+              <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+              <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+              <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+              <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+              <option>Wisconsin</option><option>Wyoming</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="current-lines">Current product lines carried?</label>
+            <textarea id="current-lines" class="form-textarea" placeholder="Tell us about the brands/products you currently carry"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ws-message">Message / Additional Info</label>
+            <textarea id="ws-message" class="form-textarea tall" placeholder="Anything else you'd like us to know?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit Inquiry</button>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="wholesale-sidebar">
+
+        <!-- What to Expect -->
+        <div class="sidebar-card">
+          <h3>What to Expect</h3>
+          <div class="sidebar-step">
+            <div class="sidebar-step-number">1</div>
+            <p>Submit your inquiry</p>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-number">2</div>
+            <p>Bobby reviews within 24–48 hours</p>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-number">3</div>
+            <p>We'll reach out to discuss pricing &amp; terms</p>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-number">4</div>
+            <p>Place your first order</p>
+          </div>
+        </div>
+
+        <!-- Questions -->
+        <div class="sidebar-card questions">
+          <h3>Questions?</h3>
+          <p>Reach out anytime — we're happy to help.</p>
+          <a href="mailto:info@hazygrovefarms.com">info@hazygrovefarms.com</a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="sidebar-card">
+          <div class="trust-badges">
+            <div class="trust-badge">
+              <div class="trust-badge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </div>
+              <span>Lab Tested</span>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <span>NC Based</span>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <span>All Natural</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="images/logo-footer-full.png" alt="Hazy Grove Hemp Farm" style="filter: invert(1);">
+          </div>
+          <p>Premium hemp products crafted with care in North Carolina. Quality you can trust, from our family to yours.</p>
+        </div>
+
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="collection.html">CBD Daily Gummies</a></li>
+            <li><a href="collection.html">THC Recreational</a></li>
+            <li><a href="collection.html">Sleep Gummies</a></li>
+            <li><a href="collection.html">Tinctures</a></li>
+            <li><a href="collection.html">All Products</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="#">Lab Results</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p>4310 Daugherty Road</p>
+          <p>China Grove, NC 28023</p>
+          <p style="margin-top: 12px;"><a href="mailto:info@hazygrovefarms.com" style="color: var(--hemp-paper);">info@hazygrovefarms.com</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Products contain hemp-derived cannabinoids. Must be 21+ to purchase THC products. Please consult your physician before use. Keep out of reach of children.</p>
+        <p class="footer-copyright">&copy; 2026 Hazy Grove Farms. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
