@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBD Daily Gummies — Watermelon — Hazy Grove Farms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #4a4a4a;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============ DESIGN TOKENS ============ */
+    :root {
+      --charcoal: #4a4a4a;
+      --hunter-green: #32473a;
+      --hemp-paper: #dfcea5;
+      --white: #ffffff;
+      --cbd-green: #5a8f5c;
+      --thc-red: #c0392b;
+      --sleep-purple: #6b4c8a;
+      --tincture-coral: #d97755;
+      --light-bg: #f9f6f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============ NAVIGATION ============ */
+    .nav {
+      background: #4a4a4a;
+      padding: 16px 0;
+      position: relative;
+      z-index: 100;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      height: 56px;
+      width: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #e0e0e0;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--hemp-paper); }
+    .nav-links a.active { color: var(--hemp-paper); }
+    .nav-cart {
+      position: relative;
+      color: #e0e0e0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-cart:hover { color: var(--hemp-paper); }
+    .nav-cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--hunter-green);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #e0e0e0;
+    }
+
+    /* ============ SHARED BUTTON ============ */
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--hunter-green);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #3d5a49;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(50,71,58,0.3);
+    }
+    .btn-add-cart {
+      width: 100%;
+      padding: 12px;
+      background: var(--hunter-green);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-add-cart:hover {
+      background: #3d5a49;
+    }
+
+    /* ============ BREADCRUMB ============ */
+    .breadcrumb {
+      padding: 16px 0;
+      background: var(--light-bg);
+      border-bottom: 1px solid #eee;
+    }
+    .breadcrumb .container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #999;
+    }
+    .breadcrumb a {
+      color: #777;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--hunter-green); }
+    .breadcrumb .separator { color: #ccc; }
+    .breadcrumb .current { color: var(--charcoal); font-weight: 500; }
+
+    /* ============ PRODUCT DETAIL ============ */
+    .product-detail {
+      padding: 48px 0 64px;
+      background: var(--white);
+    }
+    .product-detail .container {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Gallery */
+    .product-gallery {}
+    .product-gallery-main {
+      background: var(--light-bg);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 460px;
+      margin-bottom: 16px;
+    }
+    .product-gallery-main img {
+      max-height: 380px;
+      width: auto;
+      object-fit: contain;
+    }
+    .product-gallery-thumbs {
+      display: flex;
+      gap: 12px;
+    }
+    .product-gallery-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      background: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .product-gallery-thumb.active {
+      border-color: var(--hunter-green);
+    }
+    .product-gallery-thumb img {
+      max-height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Product Info */
+    .product-info {}
+    .product-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .tag-cbd { background: rgba(90,143,92,0.12); color: var(--cbd-green); }
+    .tag-thc { background: rgba(192,57,43,0.12); color: var(--thc-red); }
+    .tag-sleep { background: rgba(107,76,138,0.12); color: var(--sleep-purple); }
+    .tag-tincture { background: rgba(217,119,85,0.12); color: var(--tincture-coral); }
+
+    .product-info h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .product-info .product-subtitle {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 16px;
+    }
+    .product-info .product-price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 28px;
+    }
+
+    /* Variant Selectors */
+    .variant-selector {
+      margin-bottom: 20px;
+    }
+    .variant-selector-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .variant-selector-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .variant-btn {
+      padding: 8px 20px;
+      border-radius: 6px;
+      border: 1.5px solid #ddd;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .variant-btn:hover {
+      border-color: var(--hunter-green);
+      color: var(--hunter-green);
+    }
+    .variant-btn.active {
+      background: var(--hunter-green);
+      color: var(--white);
+      border-color: var(--hunter-green);
+    }
+
+    /* Actions */
+    .product-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .qty-selector {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .qty-btn {
+      width: 40px;
+      height: 44px;
+      border: none;
+      background: var(--light-bg);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qty-btn:hover { background: #ece5d5; }
+    .qty-value {
+      width: 48px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      background: var(--white);
+    }
+    .btn-add-cart-large {
+      flex: 1;
+      padding: 12px 32px;
+      background: var(--hunter-green);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      height: 44px;
+    }
+    .btn-add-cart-large:hover { background: #3d5a49; }
+
+    /* Mini Trust Badges */
+    .trust-badges-mini {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-top: 1px solid #eee;
+    }
+    .trust-badge-mini {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #777;
+    }
+    .trust-badge-mini svg {
+      width: 20px;
+      height: 20px;
+      color: var(--hunter-green);
+    }
+
+    /* ============ PRODUCT INFO SECTIONS ============ */
+    .product-info-sections {
+      padding: 0 0 64px;
+      background: var(--white);
+    }
+    .product-info-sections .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .product-info-section {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+    .product-info-section h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 16px;
+    }
+    .product-info-section p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .product-info-section p:last-child { margin-bottom: 0; }
+    .product-info-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .product-info-section ul li {
+      font-size: 15px;
+      color: #555;
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+    .product-info-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--hunter-green);
+    }
+
+    /* Cannabinoid Table */
+    .cannabinoid-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    .cannabinoid-table th {
+      text-align: left;
+      padding: 10px 16px;
+      background: var(--hunter-green);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cannabinoid-table th:first-child { border-radius: 6px 0 0 0; }
+    .cannabinoid-table th:last-child { border-radius: 0 6px 0 0; }
+    .cannabinoid-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #e5e0d5;
+      color: #555;
+    }
+    .cannabinoid-table tr:last-child td { border-bottom: none; }
+    .cannabinoid-table tr:nth-child(even) td { background: rgba(255,255,255,0.5); }
+
+    /* COA Link */
+    .coa-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--white);
+      border: 1.5px solid var(--hunter-green);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--hunter-green);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .coa-link:hover {
+      background: var(--hunter-green);
+      color: var(--white);
+    }
+    .coa-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ============ WARNING BANNER ============ */
+    .warning-banner {
+      margin: 0 0 64px;
+    }
+    .warning-banner .container > div {
+      background: #fef9e7;
+      border-left: 4px solid #d4ac0d;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 28px;
+    }
+    .warning-banner h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #7d6608;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .warning-banner p {
+      font-size: 13px;
+      color: #7d6608;
+      line-height: 1.6;
+    }
+
+    /* ============ RELATED PRODUCTS ============ */
+    .related-products {
+      padding: 64px 0 80px;
+      background: var(--light-bg);
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-heading h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 8px;
+    }
+    .section-heading p {
+      font-size: 17px;
+      color: #777;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .product-card-accent {
+      height: 4px;
+      width: 100%;
+    }
+    .accent-green { background: var(--cbd-green); }
+    .accent-red { background: var(--thc-red); }
+    .accent-purple { background: var(--sleep-purple); }
+    .accent-coral { background: var(--tincture-coral); }
+    .product-card-img {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #fafafa;
+    }
+    .product-card-img img {
+      max-height: 160px;
+      width: auto;
+      object-fit: contain;
+    }
+    .product-card-body {
+      padding: 20px 24px 24px;
+    }
+    .product-card-body h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .product-card-body .product-subtitle {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+    .product-card-body .product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 16px;
+    }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      background: var(--charcoal);
+      color: #ccc;
+      padding: 60px 0 24px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-self: start;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-brand-logo img {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #aaa;
+    }
+    .footer h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--hemp-paper);
+      margin-bottom: 16px;
+    }
+    .footer ul {
+      list-style: none;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul a {
+      color: #aaa;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer ul a:hover { color: var(--hemp-paper); }
+    .footer-contact p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+    .footer-bottom {
+      border-top: 1px solid #5a5a5a;
+      padding-top: 20px;
+    }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .footer-copyright {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+
+      .product-detail .container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .product-gallery-main { min-height: 320px; padding: 24px; }
+      .product-gallery-main img { max-height: 260px; }
+
+      .product-info-sections .container {
+        grid-template-columns: 1fr;
+      }
+
+      .related-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .product-info h1 { font-size: 26px; }
+      .product-info .product-price { font-size: 24px; }
+      .section-heading h2 { font-size: 36px; }
+      .trust-badges-mini { flex-direction: column; gap: 12px; }
+      .product-actions { flex-direction: column; }
+      .btn-add-cart-large { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-nav.png" alt="Hazy Grove Farms">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="wholesale.html">Wholesale</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li>
+          <a href="#" class="nav-cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <span class="nav-cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <button class="nav-mobile-toggle" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== BREADCRUMB ==================== -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="collection.html">Shop</a>
+      <span class="separator">/</span>
+      <a href="collection.html">CBD Daily Gummies</a>
+      <span class="separator">/</span>
+      <span class="current">Watermelon</span>
+    </div>
+  </div>
+
+  <!-- ==================== PRODUCT DETAIL ==================== -->
+  <section class="product-detail">
+    <div class="container">
+
+      <!-- Left: Gallery -->
+      <div class="product-gallery">
+        <div class="product-gallery-main">
+          <img src="images/labels/featured-cbd-watermelon.png" alt="CBD Daily Gummies — Watermelon">
+        </div>
+        <div class="product-gallery-thumbs">
+          <div class="product-gallery-thumb active">
+            <img src="images/labels/featured-cbd-watermelon.png" alt="Front label">
+          </div>
+          <div class="product-gallery-thumb">
+            <img src="images/labels/cbd-daily-w.png" alt="Back label">
+          </div>
+          <div class="product-gallery-thumb">
+            <img src="images/labels/cbd-daily.png" alt="Category shot">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Product Info -->
+      <div class="product-info">
+        <span class="product-tag tag-cbd">CBD Daily</span>
+        <h1>CBD Daily Gummies — Watermelon</h1>
+        <p class="product-subtitle">50mg CBD + 2mg THC per gummy &nbsp;|&nbsp; 30 count</p>
+        <p class="product-price">$34.99</p>
+
+        <!-- Flavor Selector -->
+        <div class="variant-selector">
+          <p class="variant-selector-label">Flavor</p>
+          <div class="variant-selector-options">
+            <button class="variant-btn active">Watermelon</button>
+            <button class="variant-btn">Blood Orange</button>
+            <button class="variant-btn">Blue Raspberry</button>
+          </div>
+        </div>
+
+        <!-- Strength Selector -->
+        <div class="variant-selector">
+          <p class="variant-selector-label">Strength</p>
+          <div class="variant-selector-options">
+            <button class="variant-btn active">Standard 50+2</button>
+            <button class="variant-btn">THC-Free 50+0</button>
+            <button class="variant-btn">Extra Strength 100+5</button>
+          </div>
+        </div>
+
+        <!-- Quantity + Add to Cart -->
+        <div class="product-actions">
+          <div class="qty-selector">
+            <button class="qty-btn">−</button>
+            <div class="qty-value">1</div>
+            <button class="qty-btn">+</button>
+          </div>
+          <button class="btn-add-cart-large">Add to Cart</button>
+        </div>
+
+        <!-- Mini Trust Badges -->
+        <div class="trust-badges-mini">
+          <div class="trust-badge-mini">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12l2 2 4-4"/>
+              <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/>
+            </svg>
+            Lab Tested
+          </div>
+          <div class="trust-badge-mini">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+            NC Based
+          </div>
+          <div class="trust-badge-mini">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M12 8v4"/>
+              <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+            </svg>
+            All Natural
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT INFO SECTIONS ==================== -->
+  <section class="product-info-sections">
+    <div class="container">
+
+      <!-- Details -->
+      <div class="product-info-section">
+        <h3>Details</h3>
+        <table class="cannabinoid-table">
+          <thead>
+            <tr>
+              <th>Cannabinoid</th>
+              <th>Per Gummy</th>
+              <th>Per Bottle (30ct)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CBD</td>
+              <td>50mg</td>
+              <td>1,500mg</td>
+            </tr>
+            <tr>
+              <td>THC (Delta-9)</td>
+              <td>2mg</td>
+              <td>60mg</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 12px;">8oz jar &bull; 30 gummies per bottle &bull; Farm Bill compliant (&lt;0.3% THC by dry weight)</p>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="product-info-section">
+        <h3>Ingredients</h3>
+        <p>Hemp-derived CBD extract, cane sugar, tapioca syrup, water, pectin, citric acid, natural watermelon flavor, natural colors (beet juice, turmeric), coconut oil, carnauba wax.</p>
+        <div style="margin-top: 16px; padding: 16px; background: var(--white); border-radius: 8px;">
+          <p style="font-size: 13px; font-weight: 600; color: var(--charcoal); margin-bottom: 8px;">Nutrition Facts (per gummy)</p>
+          <p style="font-size: 13px; color: #777; margin-bottom: 0;">Calories: 15 &nbsp;|&nbsp; Total Carbs: 4g &nbsp;|&nbsp; Total Sugars: 3g</p>
+        </div>
+      </div>
+
+      <!-- Dosage -->
+      <div class="product-info-section">
+        <h3>Dosage</h3>
+        <ul>
+          <li>Take one (1) gummy daily, or as directed by your physician</li>
+          <li>For best results, take at the same time each day</li>
+          <li>Effects typically onset within 30–60 minutes</li>
+          <li>Start with half a gummy if new to CBD products</li>
+          <li>Store in a cool, dry place away from direct sunlight</li>
+          <li>Keep sealed between uses to preserve freshness</li>
+        </ul>
+      </div>
+
+      <!-- Lab Results -->
+      <div class="product-info-section">
+        <h3>Lab Results</h3>
+        <p>Every batch of Hazy Grove Farms products is independently tested by a third-party ISO-certified laboratory to ensure potency, purity, and safety.</p>
+        <p><strong>Batch #:</strong> HG-CBD-W-502-2024</p>
+        <p>Tests for: potency, heavy metals, pesticides, microbials, residual solvents, and mycotoxins.</p>
+        <a href="#" class="coa-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          View Certificate of Analysis (COA)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== WARNING BANNER ==================== -->
+  <section class="warning-banner">
+    <div class="container">
+      <div>
+        <h4>Important Information</h4>
+        <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. This product contains hemp-derived THC. Do not operate heavy machinery or drive while using this product. Must be 21+ to purchase. Consult your physician before use, especially if you are pregnant, nursing, taking medication, or have a medical condition. Keep out of reach of children and pets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RELATED PRODUCTS ==================== -->
+  <section class="related-products">
+    <div class="container">
+      <div class="section-heading">
+        <h2>You May Also Like</h2>
+      </div>
+      <div class="related-grid">
+        <!-- THC Rec Blood Orange Indica -->
+        <a href="product.html" class="product-card">
+          <div class="product-card-accent accent-red"></div>
+          <div class="product-card-img">
+            <img src="images/labels/rec-bo-indica.png" alt="THC Rec Blood Orange Indica Gummies">
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag tag-thc">THC Rec</span>
+            <h3>Rec — Blood Orange Indica</h3>
+            <p class="product-subtitle">15mg THC + 10mg CBD per gummy</p>
+            <p class="product-price">$39.99</p>
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </a>
+        <!-- Sleep Blackberry -->
+        <a href="product.html" class="product-card">
+          <div class="product-card-accent accent-purple"></div>
+          <div class="product-card-img">
+            <img src="images/labels/sleep-bb-50-2-2.png" alt="Sleep Blackberry Gummies">
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag tag-sleep">Sleep</span>
+            <h3>Sleep — Blackberry</h3>
+            <p class="product-subtitle">50mg CBD + 2mg THC + 2mg CBN</p>
+            <p class="product-price">$34.99</p>
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </a>
+        <!-- CBD Daily Blue Raspberry -->
+        <a href="product.html" class="product-card">
+          <div class="product-card-accent accent-green"></div>
+          <div class="product-card-img">
+            <img src="images/labels/cbd-daily-br.png" alt="CBD Daily Blue Raspberry Gummies">
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag tag-cbd">CBD Daily</span>
+            <h3>CBD Daily — Blue Raspberry</h3>
+            <p class="product-subtitle">50mg CBD + 2mg THC per gummy</p>
+            <p class="product-price">$34.99</p>
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="images/logo-footer-full.png" alt="Hazy Grove Hemp Farm" style="filter: invert(1);">
+          </div>
+          <p>Premium hemp products crafted with care in North Carolina. Quality you can trust, from our family to yours.</p>
+        </div>
+
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="collection.html">CBD Daily Gummies</a></li>
+            <li><a href="collection.html">THC Recreational</a></li>
+            <li><a href="collection.html">Sleep Gummies</a></li>
+            <li><a href="collection.html">Tinctures</a></li>
+            <li><a href="collection.html">All Products</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="#">Lab Results</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p>4310 Daugherty Road</p>
+          <p>China Grove, NC 28023</p>
+          <p style="margin-top: 12px;"><a href="mailto:info@hazygrovefarms.com" style="color: var(--hemp-paper);">info@hazygrovefarms.com</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Products contain hemp-derived cannabinoids. Must be 21+ to purchase THC products. Please consult your physician before use. Keep out of reach of children.</p>
+        <p class="footer-copyright">&copy; 2026 Hazy Grove Farms. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

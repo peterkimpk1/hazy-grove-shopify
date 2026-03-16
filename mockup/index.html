@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazy Grove Farms — Premium Hemp. Honest Products.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #4a4a4a;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============ DESIGN TOKENS ============ */
+    :root {
+      --charcoal: #4a4a4a;
+      --hunter-green: #32473a;
+      --hemp-paper: #dfcea5;
+      --white: #ffffff;
+      --cbd-green: #5a8f5c;
+      --thc-red: #c0392b;
+      --sleep-purple: #6b4c8a;
+      --tincture-coral: #d97755;
+      --light-bg: #f9f6f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============ 1. NAVIGATION ============ */
+    .nav {
+      background: #4a4a4a;
+      padding: 16px 0;
+      position: relative;
+      z-index: 100;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      height: 56px;
+      width: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #e0e0e0;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--hemp-paper); }
+    .nav-cart {
+      position: relative;
+      color: #e0e0e0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-cart:hover { color: var(--hemp-paper); }
+    .nav-cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--hunter-green);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #e0e0e0;
+    }
+
+    /* ============ 2. HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('images/farm/hero.jpg') center/cover no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(50, 71, 58, 0.55) 0%,
+        rgba(50, 71, 58, 0.7) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      padding: 80px 24px;
+    }
+    .hero h1 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--hunter-green);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #3d5a49;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(50,71,58,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--hunter-green);
+      border: 2px solid var(--hunter-green);
+    }
+    .btn-outline:hover {
+      background: var(--hunter-green);
+      color: var(--white);
+    }
+
+    /* ============ 3. TRUST BADGES ============ */
+    .trust-badges {
+      background: var(--hemp-paper);
+      padding: 40px 0;
+    }
+    .trust-badges .container {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+    }
+    .trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .trust-badge-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .trust-badge-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--hunter-green);
+    }
+    .trust-badge-label {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--charcoal);
+      letter-spacing: 0.5px;
+    }
+
+    /* ============ 4. PRODUCT CATEGORIES ============ */
+    .categories {
+      padding: 80px 0;
+      background: var(--light-bg);
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-heading h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 8px;
+    }
+    .section-heading p {
+      font-size: 17px;
+      color: #777;
+    }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .category-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .category-card-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+    .category-card-img img {
+      max-height: 140px;
+      width: auto;
+      object-fit: contain;
+    }
+    .category-card-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+    .accent-green { background: var(--cbd-green); }
+    .accent-red { background: var(--thc-red); }
+    .accent-purple { background: var(--sleep-purple); }
+    .accent-coral { background: var(--tincture-coral); }
+    .category-card-body {
+      padding: 16px 20px 20px;
+      text-align: center;
+    }
+    .category-card-body h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .category-card-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--hunter-green);
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+    .category-card:hover .category-card-link { gap: 8px; }
+
+    /* ============ 5. BRAND STORY ============ */
+    .brand-story {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .brand-story .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .brand-story-img {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .brand-story-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .brand-story-text h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 20px;
+    }
+    .brand-story-text p {
+      font-size: 17px;
+      color: #555;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .brand-story-text .btn {
+      margin-top: 12px;
+    }
+
+    /* ============ 6. FEATURED PRODUCTS ============ */
+    .featured {
+      padding: 80px 0;
+      background: var(--light-bg);
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .product-card-img {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #fafafa;
+    }
+    .product-card-img img {
+      max-height: 160px;
+      width: auto;
+      object-fit: contain;
+    }
+    .product-card-body {
+      padding: 20px 24px 24px;
+    }
+    .product-card-body h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .product-card-body .product-subtitle {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+    .product-card-body .product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--hunter-green);
+      margin-bottom: 16px;
+    }
+    .btn-add-cart {
+      width: 100%;
+      padding: 12px;
+      background: var(--hunter-green);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-add-cart:hover {
+      background: #3d5a49;
+    }
+
+    /* ============ 7. FARM GALLERY ============ */
+    .gallery {
+      padding: 60px 0;
+      background: var(--white);
+    }
+    .gallery .section-heading {
+      margin-bottom: 32px;
+    }
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .gallery-strip img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .gallery-strip img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ============ 8. FOOTER ============ */
+    .footer {
+      background: var(--charcoal);
+      color: #ccc;
+      padding: 60px 0 24px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-self: start;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-brand-logo img {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #aaa;
+    }
+    .footer h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--hemp-paper);
+      margin-bottom: 16px;
+    }
+    .footer ul {
+      list-style: none;
+    }
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+    .footer ul a {
+      color: #aaa;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer ul a:hover { color: var(--hemp-paper); }
+    .footer-contact p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+    .footer-bottom {
+      border-top: 1px solid #5a5a5a;
+      padding-top: 20px;
+    }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .footer-copyright {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+
+      .hero { min-height: 500px; }
+      .hero h1 { font-size: 48px; }
+      .hero p { font-size: 17px; }
+
+      .trust-badges .container {
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+      }
+      .trust-badge {
+        flex-direction: row;
+        gap: 16px;
+      }
+
+      .category-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+      .brand-story .container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .brand-story-img img { height: 350px; }
+
+      .featured-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      .gallery-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .gallery-strip img { height: 180px; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 40px; }
+      .hero p { font-size: 16px; }
+      .section-heading h2 { font-size: 36px; }
+      .category-grid { grid-template-columns: 1fr; }
+      .brand-story-text h2 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== 1. NAVIGATION ==================== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-nav.png" alt="Hazy Grove Farms">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="wholesale.html">Wholesale</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li>
+          <a href="#" class="nav-cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <span class="nav-cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <button class="nav-mobile-toggle" aria-label="Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== 2. HERO ==================== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Premium Hemp.<br>Honest Products.</h1>
+      <p>Premium CBD &amp; THC gummies crafted with care in North Carolina</p>
+      <a href="collection.html" class="btn btn-primary">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- ==================== 3. TRUST BADGES ==================== -->
+  <section class="trust-badges">
+    <div class="container">
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/>
+          </svg>
+        </div>
+        <span class="trust-badge-label">Lab Tested</span>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="trust-badge-label">NC Based</span>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v4"/>
+            <circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="trust-badge-label">All Natural</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. PRODUCT CATEGORIES ==================== -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Shop by Category</h2>
+        <p>Something for every need, crafted with care</p>
+      </div>
+      <div class="category-grid">
+        <!-- CBD Daily -->
+        <a href="collection.html" class="category-card">
+          <div class="category-card-img">
+            <div class="category-card-accent accent-green"></div>
+            <img src="images/labels/cbd-daily.png" alt="CBD Daily Gummies">
+          </div>
+          <div class="category-card-body">
+            <h3>CBD Daily Gummies</h3>
+            <span class="category-card-link">Shop Collection &rarr;</span>
+          </div>
+        </a>
+        <!-- THC Recreational -->
+        <a href="collection.html" class="category-card">
+          <div class="category-card-img">
+            <div class="category-card-accent accent-red"></div>
+            <img src="images/labels/rec-thc.png" alt="THC Recreational Gummies">
+          </div>
+          <div class="category-card-body">
+            <h3>THC Recreational</h3>
+            <span class="category-card-link">Shop Collection &rarr;</span>
+          </div>
+        </a>
+        <!-- Sleep -->
+        <a href="collection.html" class="category-card">
+          <div class="category-card-img">
+            <div class="category-card-accent accent-purple"></div>
+            <img src="images/labels/sleep.png" alt="Sleep Gummies">
+          </div>
+          <div class="category-card-body">
+            <h3>Sleep Gummies</h3>
+            <span class="category-card-link">Shop Collection &rarr;</span>
+          </div>
+        </a>
+        <!-- Tinctures -->
+        <a href="collection.html" class="category-card">
+          <div class="category-card-img">
+            <div class="category-card-accent accent-coral"></div>
+            <img src="images/labels/tincture.png" alt="Tinctures">
+          </div>
+          <div class="category-card-body">
+            <h3>Tinctures</h3>
+            <span class="category-card-link">Shop Collection &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. BRAND STORY ==================== -->
+  <section class="brand-story">
+    <div class="container">
+      <div class="brand-story-img">
+        <img src="images/farm/about.jpg" alt="Bobby on the Hazy Grove Farm">
+      </div>
+      <div class="brand-story-text">
+        <h2>Rooted in North Carolina</h2>
+        <p>Hazy Grove Farms is rooted in China Grove, North Carolina. What started as a passion for the hemp industry has grown into a commitment to delivering the highest-quality hemp products you can trust.</p>
+        <p>Every gummy and tincture is formulated for quality and consistency, then independently lab tested before it reaches you. No shortcuts, no compromises — just honest, premium hemp products.</p>
+        <a href="#" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. FEATURED PRODUCTS ==================== -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Best Sellers</h2>
+        <p>Our customers' favorites — try them and see why</p>
+      </div>
+      <div class="featured-grid">
+        <!-- CBD Daily Watermelon 50mg -->
+        <a href="product.html" class="product-card" style="display:block;">
+          <div class="product-card-img">
+            <img src="images/labels/featured-cbd-watermelon.png" alt="CBD Daily Watermelon Gummies">
+          </div>
+          <div class="product-card-body">
+            <h3>CBD Daily Gummies — Watermelon</h3>
+            <p class="product-subtitle">50mg CBD + 2mg THC per gummy</p>
+            <p class="product-price">$34.99</p>
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </a>
+        <!-- THC Rec Blood Orange Indica -->
+        <a href="product.html" class="product-card" style="display:block;">
+          <div class="product-card-img">
+            <img src="images/labels/featured-rec-bo-indica.png" alt="THC Rec Blood Orange Indica Gummies">
+          </div>
+          <div class="product-card-body">
+            <h3>Rec Gummies — Blood Orange Indica</h3>
+            <p class="product-subtitle">15mg THC + 10mg CBD per gummy</p>
+            <p class="product-price">$39.99</p>
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </a>
+        <!-- Sleep Blackberry -->
+        <a href="product.html" class="product-card" style="display:block;">
+          <div class="product-card-img">
+            <img src="images/labels/featured-sleep-blackberry.png" alt="Sleep Blackberry Gummies">
+          </div>
+          <div class="product-card-body">
+            <h3>Sleep Gummies — Blackberry</h3>
+            <p class="product-subtitle">50mg CBD + 2mg THC + 2mg CBN</p>
+            <p class="product-price">$34.99</p>
+            <button class="btn-add-cart">Add to Cart</button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. FARM GALLERY ==================== -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-heading">
+        <h2>From China Grove, NC</h2>
+        <p>A North Carolina brand built on quality and community</p>
+      </div>
+      <div class="gallery-strip">
+        <img src="images/farm/gallery1.jpg" alt="Hemp field close-up">
+        <img src="images/farm/gallery2.jpg" alt="Farm aerial view">
+        <img src="images/farm/gallery3.jpg" alt="Harvest day in the field">
+        <img src="images/farm/gallery4.jpg" alt="Harvest bins">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8. FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="images/logo-footer-full.png" alt="Hazy Grove Hemp Farm" style="filter: invert(1);">
+          </div>
+          <p>Premium hemp products crafted with care in North Carolina. Quality you can trust, from our family to yours.</p>
+        </div>
+
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="collection.html">CBD Daily Gummies</a></li>
+            <li><a href="collection.html">THC Recreational</a></li>
+            <li><a href="collection.html">Sleep Gummies</a></li>
+            <li><a href="collection.html">Tinctures</a></li>
+            <li><a href="collection.html">All Products</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="#">Lab Results</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p>4310 Daugherty Road</p>
+          <p>China Grove, NC 28023</p>
+          <p style="margin-top: 12px;"><a href="mailto:info@hazygrovefarms.com" style="color: var(--hemp-paper);">info@hazygrovefarms.com</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Products contain hemp-derived cannabinoids. Must be 21+ to purchase THC products. Please consult your physician before use. Keep out of reach of children.</p>
+        <p class="footer-copyright">&copy; 2026 Hazy Grove Farms. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
