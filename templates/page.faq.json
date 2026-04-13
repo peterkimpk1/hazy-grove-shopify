@@ -1,0 +1,344 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Frequently Asked Questions",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everything you need to know about our products and process<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    },
+    "faq_nav": {
+      "type": "section-hg-faq-nav",
+      "blocks": {
+        "all": {
+          "type": "pill",
+          "settings": {
+            "label": "All",
+            "filter_value": "all"
+          }
+        },
+        "products": {
+          "type": "pill",
+          "settings": {
+            "label": "Products",
+            "filter_value": "products"
+          }
+        },
+        "dosage": {
+          "type": "pill",
+          "settings": {
+            "label": "Dosage & Usage",
+            "filter_value": "dosage"
+          }
+        },
+        "shipping": {
+          "type": "pill",
+          "settings": {
+            "label": "Shipping & Orders",
+            "filter_value": "shipping"
+          }
+        },
+        "legal": {
+          "type": "pill",
+          "settings": {
+            "label": "Legal & Safety",
+            "filter_value": "legal"
+          }
+        },
+        "wholesale": {
+          "type": "pill",
+          "settings": {
+            "label": "Wholesale",
+            "filter_value": "wholesale"
+          }
+        }
+      },
+      "block_order": [
+        "all",
+        "products",
+        "dosage",
+        "shipping",
+        "legal",
+        "wholesale"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
+    },
+    "faq_products": {
+      "type": "section-hg-faq-section",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What types of products does Hazy Grove Farms offer?",
+            "answer": "<p>We offer three main product lines: <strong>CBD Daily Gummies<\/strong> (available in Watermelon, Blood Orange, and Blue Raspberry), <strong>THC Recreational Gummies<\/strong> (available in Indica, Sativa, and Hybrid blends), <strong>Sleep Gummies<\/strong> (with CBD + THC + CBN), and <strong>Tinctures<\/strong> (Full Spectrum and THC-Free options). All products are crafted with premium hemp and independently lab tested.<\/p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the difference between CBD Daily and THC Recreational gummies?",
+            "answer": "<p><strong>CBD Daily Gummies<\/strong> are designed for everyday wellness with 50mg CBD and a small amount of THC (2mg) per gummy. They're great for general balance, stress, and recovery. <strong>THC Recreational Gummies<\/strong> contain 15mg THC + 10mg CBD per gummy and are formulated for a noticeable recreational experience. They come in three blends: <strong>Sativa<\/strong> (energize) with 2mg CBC, <strong>Indica<\/strong> (relax) with 2mg CBN, and <strong>Hybrid<\/strong> (balanced). Each blend is available in Watermelon, Blood Orange, and Blue Raspberry.<\/p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer THC-free products?",
+            "answer": "<p>Yes! We offer <strong>THC-Free CBD Daily Gummies<\/strong> (50mg CBD, 0mg THC) in all three flavors, as well as a <strong>THC-Free Tincture<\/strong> and <strong>THC-Free Sleep Tincture<\/strong>. These are ideal for anyone who wants the benefits of CBD without any THC, including those subject to drug testing.<\/p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is \"Extra Strength\" and how is it different?",
+            "answer": "<p>Our <strong>Extra Strength<\/strong> line doubles the cannabinoid content. CBD Daily Extra Strength contains 100mg CBD + 5mg THC per gummy (vs. 50mg CBD + 2mg THC standard). Sleep Extra Strength contains 100mg CBD + 5mg THC + 5mg CBN per gummy. Extra Strength products are recommended for experienced users or those who need a higher dose.<\/p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are Microdose Gummies?",
+            "answer": "<p>Our <strong>Microdose Gummies<\/strong> offer a lower-threshold THC experience with 50mg CBD and 2mg THC per gummy (1,560mg total per jar). Available in Watermelon, Blood Orange, and Blue Raspberry with 30 gummies per jar. They're ideal for those who want a mild, controlled experience or are newer to THC products. Microdose Gummies require you to be <strong>21 years or older<\/strong> to purchase.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "title": "Products",
+        "category": "products"
+      }
+    },
+    "faq_dosage": {
+      "type": "section-hg-faq-section",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many gummies should I take?",
+            "answer": "<p>We recommend starting with <strong>one gummy per serving<\/strong>. If you're new to CBD or THC products, consider starting with half a gummy and working your way up. Everyone responds differently, so it's best to find what works for you. For our THC Recreational gummies, wait at least 60\u201390 minutes before considering a second dose.<\/p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it take to feel the effects?",
+            "answer": "<p>Gummies are ingested orally, so effects typically onset within <strong>30\u201360 minutes<\/strong>, depending on your metabolism, body weight, and whether you've eaten recently. Effects generally last 4\u20136 hours. Tinctures taken sublingually (under the tongue) may onset faster, within 15\u201330 minutes.<\/p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I take Sleep gummies?",
+            "answer": "<p>Take one Sleep gummy approximately <strong>30\u201360 minutes before bedtime<\/strong>. The combination of CBD, THC, and CBN (cannabinol) is formulated to promote relaxation and support a restful night's sleep. Avoid operating machinery after taking Sleep gummies.<\/p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How should I store my products?",
+            "answer": "<p>Store all products in a <strong>cool, dry place<\/strong> away from direct sunlight. Keep jars sealed between uses to preserve freshness. Gummies do not require refrigeration but may benefit from it in warmer climates. All products have a shelf life of approximately 12 months from manufacturing date.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "title": "Dosage & Usage",
+        "category": "dosage"
+      }
+    },
+    "faq_shipping": {
+      "type": "section-hg-faq-section",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We ship to <strong>all 50 U.S. states<\/strong> where hemp-derived products are legal under the 2018 Farm Bill. Some states have specific restrictions on THC content \u2014 if your order cannot be shipped to your location, we'll notify you and issue a full refund. We do not currently ship internationally.<\/p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders typically ship within <strong>1\u20132 business days<\/strong> from our facility in China Grove, NC. Standard shipping takes 3\u20135 business days. Expedited shipping options are available at checkout. You'll receive a tracking number via email once your order ships.<\/p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>If you're not satisfied with your purchase, please contact us within <strong>30 days<\/strong> of delivery. Unopened products in original packaging can be returned for a full refund. Opened products may qualify for a partial refund or store credit at our discretion. Please email <a href=\"mailto:info@hazygrovefarms.com\">info@hazygrovefarms.com<\/a> to initiate a return.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "title": "Shipping & Orders",
+        "category": "shipping"
+      }
+    },
+    "faq_legal": {
+      "type": "section-hg-faq-section",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your products legal?",
+            "answer": "<p>Yes. All Hazy Grove Farms products are derived from <strong>hemp<\/strong> and comply with the <strong>2018 Farm Bill<\/strong>, which legalized hemp and hemp-derived products containing less than 0.3% THC by dry weight at the federal level. However, some states have enacted additional restrictions \u2014 please check your local laws before purchasing.<\/p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will your products show up on a drug test?",
+            "answer": "<p>Products containing THC (including our Standard and Extra Strength CBD Daily, THC Recreational, and Sleep gummies) <strong>may cause a positive result<\/strong> on a drug test. If you are subject to drug testing, we recommend our <strong>THC-Free<\/strong> product line, which contains 0mg THC and is made with broad-spectrum extract.<\/p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you provide lab results?",
+            "answer": "<p>Absolutely. Every batch is tested by an <strong>independent, ISO-certified third-party laboratory<\/strong>. Certificates of Analysis (COAs) verify potency, purity, and safety \u2014 including tests for heavy metals, pesticides, microbials, residual solvents, and mycotoxins. COA links are available on each product page.<\/p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How old do I have to be to purchase?",
+            "answer": "<p>You must be <strong>at least 21 years old<\/strong> to purchase THC-containing products from Hazy Grove Farms. An age verification gate is required before accessing the website. CBD-only (THC-Free) products require you to be at least 18 years old.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "title": "Legal & Safety",
+        "category": "legal"
+      }
+    },
+    "faq_wholesale": {
+      "type": "section-hg-faq-section",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer wholesale pricing?",
+            "answer": "<p>Yes! We partner with retail stores, smoke shops, and wellness boutiques across North Carolina and nationally. Wholesale inquiries can be submitted through our <strong>Wholesale page<\/strong>, and Bobby will follow up personally to discuss pricing, minimum orders, and terms.<\/p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are the minimum order requirements for wholesale?",
+            "answer": "<p>Minimum order quantities vary by product line. We're flexible and happy to work with shops of all sizes, from single-location boutiques to multi-store chains. <a href=\"mailto:info@hazygrovefarms.com\">Contact us<\/a> to discuss what works best for your business.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2"
+      ],
+      "settings": {
+        "title": "Wholesale",
+        "category": "wholesale"
+      }
+    },
+    "still_questions": {
+      "type": "multicolumn",
+      "blocks": {
+        "email": {
+          "type": "column",
+          "settings": {
+            "title": "Email Us",
+            "text": "<p>We'll respond within 24 hours<\/p><p><a href=\"mailto:info@hazygrovefarms.com\">info@hazygrovefarms.com<\/a><\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "visit": {
+          "type": "column",
+          "settings": {
+            "title": "Visit Us",
+            "text": "<p>4310 Daugherty Road<\/p><p>China Grove, NC 28023<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "email",
+        "visit"
+      ],
+      "settings": {
+        "title": "Still Have Questions?",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false,
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "faq_nav",
+    "faq_products",
+    "faq_dosage",
+    "faq_shipping",
+    "faq_legal",
+    "faq_wholesale",
+    "still_questions"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "scheme-2"
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Extra Strength CBD Gummies",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Double the cannabinoid content for experienced users or those who need a higher dose. Each gummy delivers 100mg CBD and 5mg THC for powerful, full-spectrum support.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "age_notice": {
+      "type": "rich-text",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>21+ Only</strong> — These products contain THC. You must be 21 years or older to purchase.</p>"
+          }
+        }
+      },
+      "block_order": ["text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "intro",
+    "age_notice",
+    "product-grid"
+  ]
+}

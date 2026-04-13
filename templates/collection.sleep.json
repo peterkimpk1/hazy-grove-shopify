@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "scheme-2"
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sleep Gummies",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Formulated for restful nights with CBD and CBN. Choose from THC Free, standard, or Extra Strength options — all in natural blackberry flavor. Take 30-60 minutes before bedtime for best results.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "age_notice": {
+      "type": "rich-text",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Note:</strong> Our Extra Strength Sleep Gummies contain THC and require you to be 21+. THC Free and standard options are available for ages 18+.</p>"
+          }
+        }
+      },
+      "block_order": ["text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "intro",
+    "age_notice",
+    "product-grid"
+  ]
+}
