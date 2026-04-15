@@ -1,0 +1,91 @@
+<div class="hg-section color-{{ section.settings.color_scheme }}">
+  <div class="hg-section__header">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hg-section__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="hg-section__subtitle">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="hg-photo-grid">
+    {%- for block in section.blocks -%}
+      <div class="hg-photo-grid__item{% if block.settings.tall %} hg-photo-grid__item--tall{% endif %}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            alt="{{ block.settings.alt | default: shop.name | escape }}"
+            width="400"
+            height="280"
+            loading="lazy"
+          >
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag }}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG Photo Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Life on the Farm"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        },
+        {
+          "type": "checkbox",
+          "id": "tall",
+          "label": "Span two rows",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG Photo Grid",
+      "blocks": [
+        { "type": "photo", "settings": { "tall": true } },
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

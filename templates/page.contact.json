@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "contact": {
+      "type": "section-hg-contact-page",
+      "settings": {
+        "heading": "Get in Touch",
+        "subheading": "We'd love to hear from you",
+        "form_heading": "Send Us a Message",
+        "email": "info@hazygrovefarms.com",
+        "address": "4310 Daugherty Road, China Grove, NC 28023",
+        "hours": "Mon\u2013Fri 9am\u20135pm EST",
+        "color_scheme": "scheme-1"
+      }
+    }
+  },
+  "order": [
+    "contact"
+  ]
+}

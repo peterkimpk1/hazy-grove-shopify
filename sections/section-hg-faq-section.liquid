@@ -1,0 +1,69 @@
+<div class="hg-faq-section" data-category="{{ section.settings.category }}">
+  {%- if section.settings.title != blank -%}
+    <h2 class="faq-section-title">{{ section.settings.title }}</h2>
+  {%- endif -%}
+
+  {%- for block in section.blocks -%}
+    <div class="hg-faq-item" {{ block.shopify_attributes }}>
+      <button class="hg-faq-question" type="button" aria-expanded="false">
+        {{ block.settings.question }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="hg-faq-answer">
+        {{ block.settings.answer }}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "HG FAQ Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Products"
+    },
+    {
+      "type": "text",
+      "id": "category",
+      "label": "Category filter value",
+      "info": "Must match the filter value in the FAQ Navigation pills (e.g. 'products', 'dosage', 'shipping', 'legal', 'wholesale').",
+      "default": "products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question here?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG FAQ Section",
+      "blocks": [
+        { "type": "faq_item" },
+        { "type": "faq_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

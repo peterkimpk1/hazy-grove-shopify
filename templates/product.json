@@ -1,0 +1,139 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_line_badge": {
+          "type": "hg_product_line_badge"
+        },
+        "title": {
+          "type": "title"
+        },
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price"
+        },
+        "trust_badges": {
+          "type": "hg_trust_badges"
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector"
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description"
+        },
+        "coa_link": {
+          "type": "hg_coa_link"
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "product_line_badge",
+        "title",
+        "caption",
+        "price",
+        "trust_badges",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "coa_link",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product_info_grid": {
+      "type": "section-hg-product-info-grid",
+      "blocks": {
+        "details": {
+          "type": "details"
+        },
+        "ingredients": {
+          "type": "ingredients"
+        },
+        "dosage": {
+          "type": "dosage"
+        },
+        "lab_results": {
+          "type": "lab_results"
+        }
+      },
+      "block_order": [
+        "details",
+        "ingredients",
+        "dosage",
+        "lab_results"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
+    },
+    "warning_banner": {
+      "type": "section-hg-warning-banner",
+      "settings": {
+        "title": "Important Information",
+        "text": "This product contains THC. By purchasing this product, you confirm that you are 21 years of age or older and that THC is legal in your state. Please consume responsibly and keep out of reach of children."
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You May Also Like",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_info_grid",
+    "warning_banner",
+    "related-products"
+  ]
+}

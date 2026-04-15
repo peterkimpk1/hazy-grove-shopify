@@ -1,0 +1,62 @@
+<div class="hg-age-gate" style="display: none;" role="dialog" aria-modal="true" aria-label="Age verification">
+  <div class="hg-age-gate__content">
+    {%- if section.settings.logo != blank -%}
+      <img
+        class="hg-age-gate__logo"
+        src="{{ section.settings.logo | image_url: width: 240 }}"
+        alt="{{ shop.name }}"
+        width="120"
+        height="120"
+        loading="eager"
+      >
+    {%- endif -%}
+    <h2 class="hg-age-gate__title">{{ section.settings.heading }}</h2>
+    <p class="hg-age-gate__subtitle">{{ section.settings.subtext }}</p>
+    <div class="hg-age-gate__buttons">
+      <button class="hg-age-gate__btn hg-age-gate__btn--yes" type="button">
+        {{ section.settings.yes_text }}
+      </button>
+      <button class="hg-age-gate__btn hg-age-gate__btn--no" type="button">
+        {{ section.settings.no_text }}
+      </button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Age Gate",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Are you 21 or older?"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "You must be 21 years of age or older to enter this site."
+    },
+    {
+      "type": "text",
+      "id": "yes_text",
+      "label": "Yes button text",
+      "default": "Yes, I'm 21+"
+    },
+    {
+      "type": "text",
+      "id": "no_text",
+      "label": "No button text",
+      "default": "No, Exit"
+    }
+  ]
+}
+{% endschema %}

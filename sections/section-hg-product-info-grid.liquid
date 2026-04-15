@@ -1,0 +1,114 @@
+{%- assign current_product = product -%}
+
+<div class="hg-section color-{{ section.settings.color_scheme }}">
+  <div class="hg-section__header">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hg-section__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+  </div>
+
+  <div class="hg-product-info-grid">
+    {%- for block in section.blocks -%}
+      <div class="hg-product-info-card hg-shadow" {{ block.shopify_attributes }}>
+        {%- case block.type -%}
+          {%- when 'details' -%}
+            <h3>Details</h3>
+            {%- if current_product.metafields.custom.details != blank -%}
+              <div class="rte">{{ current_product.metafields.custom.details | metafield_tag }}</div>
+            {%- endif -%}
+            {%- if current_product.metafields.custom.cannabinoid_table != blank -%}
+              <div class="rte">{{ current_product.metafields.custom.cannabinoid_table | metafield_tag }}</div>
+            {%- else -%}
+              <p style="color: #666; font-size: 14px;">Cannabinoid details will appear here once product metafields are configured.</p>
+            {%- endif -%}
+
+          {%- when 'ingredients' -%}
+            <h3>Ingredients</h3>
+            {%- if current_product.metafields.custom.ingredients != blank -%}
+              <div class="rte">{{ current_product.metafields.custom.ingredients | metafield_tag }}</div>
+            {%- else -%}
+              <p style="color: #666; font-size: 14px;">Ingredient list will appear here once product metafields are configured.</p>
+            {%- endif -%}
+
+          {%- when 'dosage' -%}
+            <h3>Dosage Guide</h3>
+            {%- if current_product.metafields.custom.dosage != blank -%}
+              <div class="rte">{{ current_product.metafields.custom.dosage | metafield_tag }}</div>
+            {%- else -%}
+              <p style="color: #666; font-size: 14px;">Dosage information will appear here once product metafields are configured.</p>
+            {%- endif -%}
+
+          {%- when 'lab_results' -%}
+            <h3>Lab Results</h3>
+            {%- if current_product.metafields.custom.batch_number != blank -%}
+              <p><strong>Batch:</strong> {{ current_product.metafields.custom.batch_number }}</p>
+            {%- endif -%}
+            {%- assign coa_url = current_product.metafields.custom.coa_url -%}
+            {%- if coa_url != blank -%}
+              <a href="{{ coa_url }}" target="_blank" rel="noopener" class="hg-coa-link" style="margin-top: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                View Certificate of Analysis (COA)
+              </a>
+            {%- else -%}
+              <p style="color: #666; font-size: 14px;">Lab results will appear here once product metafields are configured.</p>
+            {%- endif -%}
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG Product Info Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "details",
+      "name": "Details",
+      "limit": 1
+    },
+    {
+      "type": "ingredients",
+      "name": "Ingredients",
+      "limit": 1
+    },
+    {
+      "type": "dosage",
+      "name": "Dosage Guide",
+      "limit": 1
+    },
+    {
+      "type": "lab_results",
+      "name": "Lab Results",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG Product Info Grid",
+      "blocks": [
+        { "type": "details" },
+        { "type": "ingredients" },
+        { "type": "dosage" },
+        { "type": "lab_results" }
+      ]
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}

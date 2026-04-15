@@ -1,0 +1,211 @@
+<div class="hg-section color-{{ section.settings.color_scheme }}">
+  <div class="hg-wholesale-layout">
+    <!-- Form Column -->
+    <div>
+      <h2 style="font-family: 'Amatic SC', cursive; font-size: 42px; font-weight: 700; color: #32473a; margin: 0 0 8px;">
+        {{ section.settings.form_heading | default: 'Wholesale Inquiry' }}
+      </h2>
+      <p style="font-size: 16px; color: #777; margin-bottom: 32px;">
+        {{ section.settings.form_subheading | default: 'Fill out the form below and Bobby will follow up personally.' }}
+      </p>
+
+      {%- form 'contact', id: 'WholesaleForm' -%}
+        {%- if form.posted_successfully? -%}
+          <div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 6px; padding: 16px; margin-bottom: 20px; color: #155724;">
+            Thank you for your inquiry! Bobby will review it and reach out within 24–48 hours.
+          </div>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <div style="background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 6px; padding: 16px; margin-bottom: 20px; color: #721c24;">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <input type="hidden" name="contact[subject]" value="Wholesale Inquiry">
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="WholesaleForm-business">Business Name</label>
+          <input class="hg-form-input" type="text" id="WholesaleForm-business" name="contact[business_name]" placeholder="Your business name" required>
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="WholesaleForm-name">Contact Name</label>
+          <input class="hg-form-input" type="text" id="WholesaleForm-name" name="contact[name]" placeholder="Your full name" required>
+        </div>
+
+        <div class="hg-form-row">
+          <div class="hg-form-group">
+            <label class="hg-form-label" for="WholesaleForm-email">Email</label>
+            <input class="hg-form-input" type="email" id="WholesaleForm-email" name="contact[email]" placeholder="your@email.com" required>
+          </div>
+          <div class="hg-form-group">
+            <label class="hg-form-label" for="WholesaleForm-phone">Phone</label>
+            <input class="hg-form-input" type="tel" id="WholesaleForm-phone" name="contact[phone]" placeholder="(555) 123-4567">
+          </div>
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="WholesaleForm-type">Business Type</label>
+          <select class="hg-form-select hg-form-input" id="WholesaleForm-type" name="contact[business_type]">
+            <option value="" disabled selected>Select your business type</option>
+            <option value="Retail Store">Retail Store</option>
+            <option value="Smoke Shop">Smoke Shop</option>
+            <option value="Wellness Boutique">Wellness Boutique</option>
+            <option value="Dispensary">Dispensary</option>
+            <option value="Online Retailer">Online Retailer</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="WholesaleForm-state">State</label>
+          <select class="hg-form-select hg-form-input" id="WholesaleForm-state" name="contact[state]">
+            <option value="" disabled selected>Select your state</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+            <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+            <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+            <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+            <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+            <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+            <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+            <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+            <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+            <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+            <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+            <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+            <option>Wisconsin</option><option>Wyoming</option>
+          </select>
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="WholesaleForm-lines">Current product lines carried?</label>
+          <textarea class="hg-form-textarea hg-form-input" id="WholesaleForm-lines" name="contact[current_lines]" rows="4" placeholder="Tell us about the brands/products you currently carry"></textarea>
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="WholesaleForm-body">Message / Additional Info</label>
+          <textarea class="hg-form-textarea hg-form-input" id="WholesaleForm-body" name="contact[body]" rows="6" placeholder="Anything else you'd like us to know?"></textarea>
+        </div>
+
+        <button type="submit" class="hg-form-submit">Submit Inquiry</button>
+      {%- endform -%}
+    </div>
+
+    <!-- Sidebar Column -->
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <!-- What to Expect -->
+      <div class="hg-sidebar-card">
+        <h3>What to Expect</h3>
+        {%- for block in section.blocks -%}
+          <div class="hg-sidebar-step" {{ block.shopify_attributes }}>
+            <div class="hg-sidebar-step__number">{{ block.settings.step_number | default: forloop.index }}</div>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <!-- Questions -->
+      <div class="hg-sidebar-card">
+        <h3>Questions?</h3>
+        <p style="font-size: 15px; color: #555; margin-bottom: 8px;">Reach out anytime — we're happy to help.</p>
+        <a href="mailto:{{ section.settings.email }}" style="color: #32473a; font-weight: 600;">{{ section.settings.email }}</a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="hg-sidebar-card" style="text-align: center;">
+        <div style="display: flex; justify-content: center; gap: 24px; margin-top: 8px;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#32473a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <span style="font-size: 12px; font-weight: 600; color: #4a4a4a;">Third Party Lab Tested</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#32473a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <span style="font-size: 12px; font-weight: 600; color: #4a4a4a;">NC Grown Hemp</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#32473a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <span style="font-size: 12px; font-weight: 600; color: #4a4a4a;">All Natural Ingredients</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG Wholesale Form",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Wholesale Inquiry"
+    },
+    {
+      "type": "text",
+      "id": "form_subheading",
+      "label": "Form subheading",
+      "default": "Fill out the form below and Bobby will follow up personally."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Contact email",
+      "default": "info@hazygrovefarms.com"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Process Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Step text",
+          "default": "Submit your inquiry"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG Wholesale Form",
+      "blocks": [
+        { "type": "step", "settings": { "step_number": "1", "text": "Submit your inquiry" } },
+        { "type": "step", "settings": { "step_number": "2", "text": "Bobby reviews within 24–48 hours" } },
+        { "type": "step", "settings": { "step_number": "3", "text": "We'll reach out to discuss pricing & terms" } },
+        { "type": "step", "settings": { "step_number": "4", "text": "Place your first order" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

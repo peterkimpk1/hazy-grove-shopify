@@ -1,0 +1,64 @@
+<div class="hg-section color-{{ section.settings.color_scheme }}" style="padding-bottom: 0;">
+  <div class="hg-faq-nav">
+    {%- for block in section.blocks -%}
+      <button
+        class="hg-pill hg-faq-pill{% if forloop.first %} active{% endif %}"
+        data-filter="{{ block.settings.filter_value }}"
+        type="button"
+        {{ block.shopify_attributes }}
+      >
+        {{ block.settings.label }}
+      </button>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG FAQ Navigation",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pill",
+      "name": "Filter Pill",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "All"
+        },
+        {
+          "type": "text",
+          "id": "filter_value",
+          "label": "Filter value",
+          "info": "Use 'all' to show all sections, or match the data-category attribute on FAQ sections.",
+          "default": "all"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG FAQ Navigation",
+      "blocks": [
+        { "type": "pill", "settings": { "label": "All", "filter_value": "all" } },
+        { "type": "pill", "settings": { "label": "Products", "filter_value": "products" } },
+        { "type": "pill", "settings": { "label": "Dosage & Usage", "filter_value": "dosage" } },
+        { "type": "pill", "settings": { "label": "Shipping & Orders", "filter_value": "shipping" } },
+        { "type": "pill", "settings": { "label": "Legal & Safety", "filter_value": "legal" } },
+        { "type": "pill", "settings": { "label": "Wholesale", "filter_value": "wholesale" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

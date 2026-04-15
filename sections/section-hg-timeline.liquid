@@ -1,0 +1,112 @@
+<div class="hg-section color-{{ section.settings.color_scheme }}">
+  <div class="hg-section__header">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hg-section__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="hg-section__subtitle">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="hg-timeline">
+    {%- for block in section.blocks -%}
+      <div class="hg-timeline__step" {{ block.shopify_attributes }}>
+        <div class="hg-timeline__number">{{ block.settings.step_number | default: forloop.index }}</div>
+        <h3 class="hg-timeline__title">{{ block.settings.title }}</h3>
+        <p class="hg-timeline__desc">{{ block.settings.description }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG Timeline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Seed to Shelf"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our process from farm to your hands"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Timeline Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG Timeline",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "1",
+            "title": "Plant",
+            "description": "We start with carefully selected hemp genetics suited for North Carolina's climate."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "2",
+            "title": "Grow",
+            "description": "Our plants are nurtured on our China Grove, NC farm using sustainable farming practices."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "3",
+            "title": "Harvest",
+            "description": "Each plant is hand-harvested at peak maturity for maximum cannabinoid content."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "4",
+            "title": "Craft",
+            "description": "Our hemp is expertly extracted and formulated in small batches by trusted partners for quality and consistency."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

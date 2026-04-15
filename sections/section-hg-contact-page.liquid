@@ -1,0 +1,178 @@
+<div class="hg-section color-{{ section.settings.color_scheme }}">
+  {%- if section.settings.heading != blank -%}
+    <div class="hg-section__header" style="border-bottom: 4px solid #dfcea5; padding-bottom: 24px; margin-bottom: 48px;">
+      <h1 class="hg-section__title" style="font-size: 56px;">{{ section.settings.heading }}</h1>
+      {%- if section.settings.subheading != blank -%}
+        <p class="hg-section__subtitle">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="hg-contact-layout">
+    <!-- Form Column -->
+    <div>
+      <h2 style="font-family: 'Amatic SC', cursive; font-size: 36px; font-weight: 700; color: #32473a; margin: 0 0 24px;">
+        {{ section.settings.form_heading | default: 'Send Us a Message' }}
+      </h2>
+
+      {%- form 'contact', id: 'ContactForm' -%}
+        {%- if form.posted_successfully? -%}
+          <div style="background: #d4edda; border: 1px solid #c3e6cb; border-radius: 6px; padding: 16px; margin-bottom: 20px; color: #155724;">
+            Thank you for your message! We'll get back to you within 24 hours.
+          </div>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <div style="background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 6px; padding: 16px; margin-bottom: 20px; color: #721c24;">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="ContactForm-name">Name</label>
+          <input
+            class="hg-form-input"
+            type="text"
+            id="ContactForm-name"
+            name="contact[name]"
+            value="{{ form.name }}"
+            placeholder="Your name"
+            required
+          >
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="ContactForm-email">Email</label>
+          <input
+            class="hg-form-input"
+            type="email"
+            id="ContactForm-email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            placeholder="your@email.com"
+            required
+          >
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="ContactForm-subject">Subject</label>
+          <select class="hg-form-select hg-form-input" id="ContactForm-subject" name="contact[subject]">
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Product Question">Product Question</option>
+            <option value="Order Issue">Order Issue</option>
+            <option value="Wholesale">Wholesale</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="hg-form-group">
+          <label class="hg-form-label" for="ContactForm-body">Message</label>
+          <textarea
+            class="hg-form-textarea hg-form-input"
+            id="ContactForm-body"
+            name="contact[body]"
+            rows="6"
+            placeholder="How can we help?"
+            required
+          >{{ form.body }}</textarea>
+        </div>
+
+        <button type="submit" class="hg-form-submit">Send Message</button>
+      {%- endform -%}
+    </div>
+
+    <!-- Info Cards Column -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <h2 style="font-family: 'Amatic SC', cursive; font-size: 36px; font-weight: 700; color: #32473a; margin: 0 0 4px;">
+        Contact Info
+      </h2>
+
+      <div class="hg-contact-info-card">
+        <div class="hg-contact-info-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div>
+          <strong>Email</strong><br>
+          <a href="mailto:{{ section.settings.email }}" style="color: #32473a;">{{ section.settings.email }}</a>
+        </div>
+      </div>
+
+      <div class="hg-contact-info-card">
+        <div class="hg-contact-info-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <strong>Address</strong><br>
+          {{ section.settings.address }}
+        </div>
+      </div>
+
+      <div class="hg-contact-info-card">
+        <div class="hg-contact-info-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Hours</strong><br>
+          {{ section.settings.hours }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG Contact Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page heading",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "We'd love to hear from you"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Send Us a Message"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email address",
+      "default": "info@hazygrovefarms.com"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "4310 Daugherty Road, China Grove, NC 28023"
+    },
+    {
+      "type": "text",
+      "id": "hours",
+      "label": "Business hours",
+      "default": "Mon–Fri 9am–5pm EST"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG Contact Page"
+    }
+  ]
+}
+{% endschema %}

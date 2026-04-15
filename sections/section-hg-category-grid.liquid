@@ -1,0 +1,154 @@
+<div class="hg-section color-{{ section.settings.color_scheme }}">
+  <div class="hg-section__header">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="hg-section__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <p class="hg-section__subtitle">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="hg-category-grid">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        case block.settings.accent_color
+          when 'cbd'
+            assign accent = settings.hg_cbd_green
+          when 'thc'
+            assign accent = settings.hg_thc_red
+          when 'sleep'
+            assign accent = settings.hg_sleep_purple
+          when 'tincture'
+            assign accent = settings.hg_tincture_coral
+          else
+            assign accent = settings.hg_cbd_green
+        endcase
+      -%}
+      <div class="hg-category-card" {{ block.shopify_attributes }}>
+        <div class="hg-category-card__accent" style="background-color: {{ accent }};"></div>
+        {%- if block.settings.image != blank -%}
+          <img
+            class="hg-category-card__img"
+            src="{{ block.settings.image | image_url: width: 600 }}"
+            alt="{{ block.settings.title | escape }}"
+            width="300"
+            height="200"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="hg-category-card__img" style="display:flex;align-items:center;justify-content:center;">
+            {{ 'collection-1' | placeholder_svg_tag }}
+          </div>
+        {%- endif -%}
+        <div class="hg-category-card__body">
+          <h3 class="hg-category-card__title">{{ block.settings.title }}</h3>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="hg-category-card__link">
+              Shop Now
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HG Category Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop By Category"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Find the perfect product for your needs"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Category"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Collection Link"
+        },
+        {
+          "type": "select",
+          "id": "accent_color",
+          "label": "Accent Color",
+          "options": [
+            { "value": "cbd", "label": "CBD Green" },
+            { "value": "thc", "label": "THC Red" },
+            { "value": "sleep", "label": "Sleep Purple" },
+            { "value": "tincture", "label": "Tincture Coral" }
+          ],
+          "default": "cbd"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HG Category Grid",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "CBD Daily Gummies",
+            "accent_color": "cbd"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "THC Recreational",
+            "accent_color": "thc"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Sleep Gummies",
+            "accent_color": "sleep"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Tinctures",
+            "accent_color": "tincture"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

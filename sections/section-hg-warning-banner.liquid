@@ -1,0 +1,35 @@
+{%- if product.metafields.custom.contains_thc -%}
+  <div class="hg-section" style="padding: 20px 0;">
+    <div class="hg-warning-banner" style="margin: 0 auto; max-width: var(--page-width); padding-left: 24px; padding-right: 24px;">
+      <div class="hg-warning-banner__title">
+        {{ section.settings.title | default: 'Important Information' }}
+      </div>
+      <div class="hg-warning-banner__text">
+        {{ section.settings.text | default: 'This product contains THC. By purchasing this product, you confirm that you are 21 years of age or older and that THC is legal in your state. Please consume responsibly and keep out of reach of children.' }}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "HG Warning Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Important Information"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Warning text",
+      "default": "This product contains THC. By purchasing this product, you confirm that you are 21 years of age or older and that THC is legal in your state. Please consume responsibly and keep out of reach of children."
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}
